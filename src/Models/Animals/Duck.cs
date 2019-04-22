@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Animals {
-    public class Ostrich : Animal, IGrazing, IMeatProducing, IEggProducing {
+    public class Duck : Animal, IHouseDwelling, IEggProducing, IFeatherProducing {
         // Properties:
 
         // Constructor:
-        public Ostrich() {
-            Type = "Ostrich";
+        public Duck() {
+            Type = "Duck";
         }
 
         // Methods
