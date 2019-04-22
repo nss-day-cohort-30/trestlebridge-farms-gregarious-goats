@@ -1,13 +1,13 @@
-#Fixes
+Fixes
 -
 -
 -
 
-#Changes proposed in this request:
+Changes proposed in this request:
 -
 -
 -
 
-#Commit message:
+Commit message:
 
 @gregarious-goats
