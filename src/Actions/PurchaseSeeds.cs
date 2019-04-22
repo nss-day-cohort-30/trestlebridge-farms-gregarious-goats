@@ -5,10 +5,11 @@ using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions {
-    public class PurchaseStock {
+    public class PurchaseSeeds {
         public static void CollectInput (Farm farm) {
-            Console.WriteLine ("1. Cow");
-            Console.WriteLine ("2. Ostrich");
+            Console.WriteLine ("1. Sesame");
+            Console.WriteLine ("2. Wild Flower");
+            Console.WriteLine ("2. Sunflower");
 
             Console.WriteLine ();
             Console.WriteLine ("What are you buying today?");
@@ -19,7 +20,8 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse(choice))
             {
                 case 1:
-                     ChooseGrazingField.CollectInput(farm, new Cow());
+                    ChooseGrazingField.CollectInput(farm, new Cow());
+
                     break;
                 default:
                     break;
