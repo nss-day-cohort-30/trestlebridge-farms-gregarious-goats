@@ -12,7 +12,7 @@ namespace Trestlebridge.Models.Facilities {
         private int _capacity = 1;
         private Guid _id = Guid.NewGuid();
 
-        private List<IHouseDwelling> _animals = new List<IHouseDwelling>();
+        public List<IHouseDwelling> _animals = new List<IHouseDwelling>();
 
         public double Capacity {
             get {
@@ -27,6 +27,8 @@ namespace Trestlebridge.Models.Facilities {
             } else {
                 Console.WriteLine(@"**** That facililty is not large enough ****
 ****     Please choose another one      ****");
+                // this.AddResource(animal);
+                // TODO: Show menu again!!
             }
         }
 
