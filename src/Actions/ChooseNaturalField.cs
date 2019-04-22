@@ -22,7 +22,7 @@ namespace Trestlebridge.Actions {
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
-            farm.NaturalFields[choice].AddResource(seed);
+            farm.NaturalFields[choice-1].AddResource(seed);
 
             /*
                 Couldn't get this to work. Can you?

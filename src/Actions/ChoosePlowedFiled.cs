@@ -17,12 +17,12 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Where would you like to plant the Sunflowers?");
+            Console.WriteLine ($"Where would you like to plant the seeds?");
 
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
-            farm.PlowedFields[choice].AddResource(seed);
+            farm.PlowedFields[choice-1].AddResource(seed);
 
             /*
                 Couldn't get this to work. Can you?

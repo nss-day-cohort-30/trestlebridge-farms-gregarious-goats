@@ -10,7 +10,7 @@ namespace Trestlebridge.Actions {
         public static void CollectInput (Farm farm) {
             Console.WriteLine ("1. Sesame");
             Console.WriteLine ("2. Wild Flower");
-            Console.WriteLine ("2. Sunflower");
+            Console.WriteLine ("3. Sunflower");
 
             Console.WriteLine ();
             Console.WriteLine ("What are you buying today?");
@@ -21,12 +21,14 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse(choice))
             {
                 case 1:
-                    ChooseGrazingField.CollectInput(farm, new Cow());
-
+                    ChoosePlowedField.CollectInput(farm, new Sesame());
                     break;
                 case 2:
-                ChooseNaturalField.CollectInput(farm, new WildFlower());
-                break;
+                    ChooseNaturalField.CollectInput(farm, new WildFlower());
+                    break;
+                case 3:
+                    ChooseBothField.CollectInput(farm, new SunFlower());
+                    break;
                 default:
                     break;
             }
