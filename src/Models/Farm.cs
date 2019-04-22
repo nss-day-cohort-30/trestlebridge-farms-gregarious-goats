@@ -39,9 +39,9 @@ namespace Trestlebridge.Models
         {
             PlowedFields.Add(field);
         }
-        public void AddNaturalField (GrazingField field)
+        public void AddNaturalField (NaturalField field)
         {
-            GrazingFields.Add(field);
+            NaturalFields.Add(field);
         }
         public void AddChickenHouse (ChickenHouse house)
         {
