@@ -3,6 +3,7 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.Facilities;
+using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions {
     public class PurchaseSeeds {
@@ -23,6 +24,9 @@ namespace Trestlebridge.Actions {
                     ChooseGrazingField.CollectInput(farm, new Cow());
 
                     break;
+                case 2:
+                ChooseNaturalField.CollectInput(farm, new WildFlower());
+                break;
                 default:
                     break;
             }
