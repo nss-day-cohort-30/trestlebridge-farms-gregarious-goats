@@ -4,11 +4,11 @@ using Trestlebridge.Models.BaseClasses;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class Sesame : Plant, IResource, ISeedProducing
+    public class WildFlower : Plant, IResource, ISeedProducing
     {
         private int _seedsProduced = 40;
 
-        public Sesame () :base ("Sesame") {   }
+        public WildFlower () :base ("WildFlower") {   }
         public double Harvest () {
             return _seedsProduced;
         }
