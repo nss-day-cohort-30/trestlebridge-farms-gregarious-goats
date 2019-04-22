@@ -24,6 +24,7 @@ namespace Trestlebridge.Actions {
             switch (Int32.Parse(choice))
             {
                 case 1:
+
                     ChooseGrazingField.CollectInput(farm, new Cow());
                     break;
                 case 2:
