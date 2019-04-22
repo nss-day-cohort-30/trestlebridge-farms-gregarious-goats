@@ -39,9 +39,9 @@ namespace Trestlebridge.Models
         {
             PlowedFields.Add(field);
         }
-        public void AddNaturalField (GrazingField field)
+        public void AddNaturalField (NaturalField field)
         {
-            GrazingFields.Add(field);
+            NaturalFields.Add(field);
         }
         public void AddChickenHouse (ChickenHouse house)
         {
@@ -57,6 +57,10 @@ namespace Trestlebridge.Models
             StringBuilder report = new StringBuilder();
 
             GrazingFields.ForEach(gf => report.Append(gf));
+            PlowedFields.ForEach(pf => report.Append(pf));
+            NaturalFields.ForEach(nf => report.Append(nf));
+            ChickenHouses.ForEach(ch => report.Append(ch));
+            DuckHouses.ForEach(dh => report.Append(dh));
 
             return report.ToString();
         }

@@ -2,7 +2,7 @@ namespace Trestlebridge.Interfaces
 {
     public interface IGrazing
     {
-        double GrassPerDay { get; set; }
-        void Graze();
+        // double GrassPerDay { get; set; }
+        // void Graze();
     }
 }
