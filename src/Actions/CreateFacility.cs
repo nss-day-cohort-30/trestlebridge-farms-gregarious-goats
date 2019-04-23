@@ -9,6 +9,7 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ("1. Grazing field");
             Console.WriteLine ("2. Plowed field");
             Console.WriteLine ("3. Natural field");
+
             Console.WriteLine ("4. Chicken house");
             Console.WriteLine ("5. Duck house");
 
