@@ -32,7 +32,7 @@ namespace Trestlebridge.Actions {
                     Console.WriteLine ();
 
                     // How can I output the type of animal chosen here?
-                    Console.WriteLine ($"Where would you like to plant the Sunflowers?");
+                    Console.WriteLine ($"Where would you like to plant the {seed.Type}?");
 
                     Console.Write ("> ");
                     int choice = Int32.Parse(Console.ReadLine ());
@@ -61,7 +61,7 @@ namespace Trestlebridge.Actions {
                 Console.WriteLine ();
 
                 // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Where would you like to plant the Sunflowers?");
+                Console.WriteLine ($"Where would you like to plant the {seeds[0].Type}?");
 
                 Console.Write ("> ");
                 int choice = Int32.Parse(Console.ReadLine ());

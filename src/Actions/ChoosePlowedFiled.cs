@@ -30,7 +30,7 @@ namespace Trestlebridge.Actions {
                         Console.WriteLine ();
 
                         // How can I output the type of animal chosen here?
-                        Console.WriteLine ($"Where would you like to plant the seeds?");
+                        Console.WriteLine ($"Where would you like to plant the {seed.Type}?");
 
                         Console.Write ("> ");
                         int choice = Int32.Parse(Console.ReadLine ());
@@ -47,7 +47,7 @@ namespace Trestlebridge.Actions {
         }
         }
 
-        public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> sesameSeeds)
+        public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> seeds)
         {
 
             for (int i = 0; i < farm.PlowedFields.Count; i++)
@@ -58,12 +58,12 @@ namespace Trestlebridge.Actions {
             Console.WriteLine ();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Where would you like to plant the seeds?");
+            Console.WriteLine ($"Where would you like to plant the {seeds[0].Type}?");
 
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
-            farm.PlowedFields[choice-1].AddResource(sesameSeeds);
+            farm.PlowedFields[choice-1].AddResource(seeds);
 
             /*
                 Couldn't get this to work. Can you?
