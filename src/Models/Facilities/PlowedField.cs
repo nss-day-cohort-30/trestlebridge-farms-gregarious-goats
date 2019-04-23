@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities {
         private int _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        private List<IPlowedFieldDwelling> _plants = new List<IPlowedFieldDwelling>();
+        public List<IPlowedFieldDwelling> _plants = new List<IPlowedFieldDwelling>();
 
         public double Capacity {
             get {
@@ -42,7 +42,7 @@ namespace Trestlebridge.Models.Facilities {
             StringBuilder output = new StringBuilder();
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Plowed field {shortId} has {this._plants.Count} row of plants\n");
+            output.Append($"Plowed field {shortId} has {this._plants.Count} plants\n");
             this._plants.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
