@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.BaseClasses
             _type = type;
         }
         public override string ToString () {
-            return $"{Type}. Yum!";
+            return $"Type: {Type}";
         }
     }
 }
