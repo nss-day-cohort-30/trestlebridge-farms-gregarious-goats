@@ -8,7 +8,7 @@ using Trestlebridge.Actions;
 namespace Trestlebridge.Models.Facilities {
     public class ChickenHouse : IFacility<IHouseDwelling>
     {
-        private int _capacity = 15;
+        private double _capacity = 15;
         private Guid _id = Guid.NewGuid();
 
         public List<IHouseDwelling> _animals = new List<IHouseDwelling>();

@@ -8,7 +8,7 @@ using Trestlebridge.Actions;
 namespace Trestlebridge.Models.Facilities {
     public class NaturalField : IFacility<INaturalFieldDwelling>
     {
-        private int _capacity = 10;
+        private double _capacity = 10;
         private Guid _id = Guid.NewGuid();
 
         public List<INaturalFieldDwelling> _plants = new List<INaturalFieldDwelling>();
