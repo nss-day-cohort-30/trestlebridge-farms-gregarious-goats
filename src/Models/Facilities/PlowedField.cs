@@ -8,7 +8,7 @@ using Trestlebridge.Actions;
 namespace Trestlebridge.Models.Facilities {
     public class PlowedField : IFacility<IPlowedFieldDwelling>
     {
-        private int _capacity = 13;
+        private double _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
         public List<IPlowedFieldDwelling> _plants = new List<IPlowedFieldDwelling>();
@@ -34,6 +34,10 @@ namespace Trestlebridge.Models.Facilities {
         {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);
+            }
+            else
+            {
+                
             }
         }
 

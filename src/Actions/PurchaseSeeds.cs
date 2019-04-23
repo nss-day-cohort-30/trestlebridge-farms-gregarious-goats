@@ -20,12 +20,13 @@ namespace Trestlebridge.Actions {
             string choice = Console.ReadLine ();
 
             Console.WriteLine ();
-            Console.WriteLine ("How many Sunflower would you like to plant?");
+            Console.WriteLine ("How many would you like to plant?");
 
             Console.Write ("> ");
             string qty = Console.ReadLine ();
             List<IPlowedFieldDwelling> SesameSeeds = new List<IPlowedFieldDwelling>();
             List<INaturalFieldDwelling> WildFlowerSeeds = new List<INaturalFieldDwelling>();
+            List<SunFlower> sunflowerSeeds = new List<SunFlower>();
             if (Int32.Parse(choice) == 1 )
             {
                 if(Int32.Parse(qty) != 1)
@@ -42,6 +43,17 @@ namespace Trestlebridge.Actions {
                     {
                         for(int i=0; i < Int32.Parse(qty); i++)
                             WildFlowerSeeds.Add(new WildFlower());
+                    }
+                }
+                else
+                {
+                    if (Int32.Parse(choice) == 3)
+                    {
+                        if(Int32.Parse(qty) != 1)
+                        {
+                            for(int i=0; i < Int32.Parse(qty); i++)
+                                sunflowerSeeds.Add(new SunFlower());
+                        }
                     }
                 }
             }
@@ -63,7 +75,11 @@ namespace Trestlebridge.Actions {
 
                     break;
                 case 3:
-                    ChooseBothField.CollectInput(farm, new SunFlower());
+                    if(Int32.Parse(qty) == 1)
+
+                        ChooseBothField.CollectInput(farm, new SunFlower());
+                    else
+                        ChooseBothField.CollectInput(farm, sunflowerSeeds);
                     break;
                 default:
                     break;

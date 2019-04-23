@@ -14,21 +14,29 @@ namespace Trestlebridge.Actions {
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
             } else {
-
+                int counter = 0;
                 for (int i = 0; i < farm.PlowedFields.Count; i++)
-                {
-                    Console.WriteLine ($"{i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count} rows of plants)");
-                }
+                {      // Only show facilities that are not full
+                    if (farm.PlowedFields[i]._plants.Count != farm.PlowedFields[i].Capacity) {
+                        Console.WriteLine ($"{i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count}/{farm.PlowedFields[i].Capacity} rows of plants)");
+                    } else {
+                        counter++;
+                } // If all options are full, tell user to buy another one
+                    if (counter == farm.PlowedFields.Count){
+                        Console.WriteLine("*** Oops! All your plowed fields are full, you need another one! ***");
+                        Console.WriteLine("*** Press return key to go back to main menu.");
+                        Console.ReadLine();
+                    } else {
+                        Console.WriteLine ();
 
-                Console.WriteLine ();
+                        // How can I output the type of animal chosen here?
+                        Console.WriteLine ($"Where would you like to plant the {seed.Type}?");
 
-                // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Where would you like to plant the seeds?");
+                        Console.Write ("> ");
+                        int choice = Int32.Parse(Console.ReadLine ());
 
-                Console.Write ("> ");
-                int choice = Int32.Parse(Console.ReadLine ());
-
-                farm.PlowedFields[choice-1].AddResource(farm, seed);
+                        farm.PlowedFields[choice-1].AddResource(farm, seed);
+                    }
 
                 /*
                     Couldn't get this to work. Can you?
@@ -37,24 +45,25 @@ namespace Trestlebridge.Actions {
                 // farm.PurchaseResource<IGrazing>(animal, choice);
             }
         }
+        }
 
-        public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> sesameSeeds)
+        public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> seeds)
         {
 
             for (int i = 0; i < farm.PlowedFields.Count; i++)
             {
-                Console.WriteLine ($"{i + 1}. Plowed Field");
+                Console.WriteLine ($"{i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count}/{farm.PlowedFields[i].Capacity} rows of plants)");
             }
 
             Console.WriteLine ();
 
             // How can I output the type of animal chosen here?
-            Console.WriteLine ($"Where would you like to plant the seeds?");
+            Console.WriteLine ($"Where would you like to plant the {seeds[0].Type}?");
 
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
-            farm.PlowedFields[choice-1].AddResource(sesameSeeds);
+            farm.PlowedFields[choice-1].AddResource(seeds);
 
             /*
                 Couldn't get this to work. Can you?

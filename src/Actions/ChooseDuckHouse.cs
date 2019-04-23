@@ -13,20 +13,31 @@ namespace Trestlebridge.Actions {
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
             } else {
+                int counter = 0;
                 for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
-                    Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i]._animals.Count} animals)");
-                }
+                    // Only show facilities that are not full
+                    if (farm.DuckHouses[i]._animals.Count != farm.DuckHouses[i].Capacity) {
+                        Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i]._animals.Count}/{farm.DuckHouses[i].Capacity} animals)");
+                    } else {
+                        counter++;
+                    }
+                } // If all options are full, tell user to buy another one
+                    if (counter == farm.DuckHouses.Count){
+                        Console.WriteLine("*** Oops! All your duck houses are full, you need another one! ***");
+                        Console.WriteLine("*** Press return key to go back to main menu.");
+                        Console.ReadLine();
+                    } else {
+                        Console.WriteLine ();
 
-                Console.WriteLine ();
+                        // How can I output the type of animal chosen here?
+                        Console.WriteLine ($"Place the animal where?");
 
-                // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Place the animal where?");
+                        Console.Write ("> ");
+                        int choice = Int32.Parse(Console.ReadLine ());
 
-                Console.Write ("> ");
-                int choice = Int32.Parse(Console.ReadLine ());
-
-                farm.DuckHouses[choice - 1].AddResource(farm, animal);
+                        farm.DuckHouses[choice - 1].AddResource(farm, animal);
+                    }
 
                 /*
                     Couldn't get this to work. Can you?
