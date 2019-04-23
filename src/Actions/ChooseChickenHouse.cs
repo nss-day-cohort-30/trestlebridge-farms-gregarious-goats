@@ -10,7 +10,7 @@ namespace Trestlebridge.Actions
     public class ChooseChickenHouse
     {
         public static void CollectInput(Farm farm, IHouseDwelling animal) {
-            //Console.Clear();
+            Console.Clear();
             if (farm.ChickenHouses.Count() == 0)
             {
                 Console.WriteLine("*** Oops! You need to purchase a chicken house first! ***");

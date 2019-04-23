@@ -7,7 +7,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions {
     public class ChooseDuckHouse {
         public static void CollectInput (Farm farm, IHouseDwelling animal) {
-            //Console.Clear();
+            Console.Clear();
             if (farm.DuckHouses.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a duck house first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
