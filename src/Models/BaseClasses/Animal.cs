@@ -22,7 +22,7 @@ namespace Trestlebridge.Models
         public string Type
         {
             set { _type = value; }
-            get { return Type; }
+            get { return _type; }
         }
         public string ShortId
         {
@@ -32,7 +32,7 @@ namespace Trestlebridge.Models
         // Methods:
         public override string ToString()
         {
-            return $"Type:{Type} - ID:{this._shortId}";
+            return $"Type: {Type}  - ID: {ShortId} ";
         }
     }
 }
