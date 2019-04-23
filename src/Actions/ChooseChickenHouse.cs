@@ -21,7 +21,7 @@ namespace Trestlebridge.Actions
                 for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
                     // Only show facilities that are not full
-                    if (farm.GrazingFields[i]._animals.Count != farm.GrazingFields[i].Capacity)
+                    if (farm.ChickenHouses[i]._animals.Count != farm.ChickenHouses[i].Capacity)
                     {
                         Console.WriteLine($"{i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count}/{farm.ChickenHouses[i].Capacity} animals)");
                     } else {
@@ -29,9 +29,9 @@ namespace Trestlebridge.Actions
                     }
 
                 } // If all options are full, tell user to buy another one
-                if (counter == farm.GrazingFields.Count)
+                if (counter == farm.ChickenHouses.Count)
                 {
-                    Console.WriteLine("*** Oops! All your grazing fields are full, you need another one! ***");
+                    Console.WriteLine("*** Oops! All your chicken houses are full, you need another one! ***");
                     Console.WriteLine("*** Press return key to go back to main menu.");
                     Console.ReadLine();
                 } else {

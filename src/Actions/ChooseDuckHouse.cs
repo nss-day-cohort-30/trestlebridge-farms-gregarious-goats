@@ -17,14 +17,14 @@ namespace Trestlebridge.Actions {
                 for (int i = 0; i < farm.DuckHouses.Count; i++)
                 {
                     // Only show facilities that are not full
-                    if (farm.GrazingFields[i]._animals.Count != farm.GrazingFields[i].Capacity) {
+                    if (farm.DuckHouses[i]._animals.Count != farm.DuckHouses[i].Capacity) {
                         Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i]._animals.Count}/{farm.DuckHouses[i].Capacity} animals)");
                     } else {
                         counter++;
                     }
                 } // If all options are full, tell user to buy another one
-                    if (counter == farm.GrazingFields.Count){
-                        Console.WriteLine("*** Oops! All your grazing fields are full, you need another one! ***");
+                    if (counter == farm.DuckHouses.Count){
+                        Console.WriteLine("*** Oops! All your duck houses are full, you need another one! ***");
                         Console.WriteLine("*** Press return key to go back to main menu.");
                         Console.ReadLine();
                     } else {

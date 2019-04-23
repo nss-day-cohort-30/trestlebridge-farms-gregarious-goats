@@ -14,28 +14,43 @@ namespace Trestlebridge.Actions {
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
             } else {
+                int counter = 0;
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
-                {
-                    Console.WriteLine ($"{i + 1}. Natural Field ({farm.NaturalFields[i]._plants.Count}/{farm.NaturalFields[i].Capacity} rows of plants)");
+                {// Only show facilities that are not full
+                    if (farm.NaturalFields[i]._plants.Count != farm.NaturalFields[i].Capacity) {
+                        Console.WriteLine ($"{i + 1}. Natural Field ({farm.NaturalFields[i]._plants.Count}/{farm.NaturalFields[i].Capacity} rows of plants)");
+                    } else {
+                        counter++;
+                    }
                 }
                 for (int i = 0; i < farm.PlowedFields.Count; i++)
-                {
-                    Console.WriteLine ($"{farm.NaturalFields.Count+ i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count}/{farm.PlowedFields[i].Capacity} rows of plants)");
+                {// Only show facilities that are not full
+                    if (farm.PlowedFields[i]._plants.Count != farm.PlowedFields[i].Capacity) {
+                        Console.WriteLine ($"{farm.NaturalFields.Count+ i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count}/{farm.PlowedFields[i].Capacity} rows of plants)");
+                    } else {
+                        counter++;
+                }// If all options are full, tell user to buy another one
+                    if (counter == (farm.PlowedFields.Count + farm.NaturalFields.Count)){
+                        Console.WriteLine("*** Oops! All your plowed and natural fields are full, you need another one! ***");
+                        Console.WriteLine("*** Press return key to go back to main menu.");
+                        Console.ReadLine();
+                    } else {
+
+                        Console.WriteLine ();
+
+                        // How can I output the type of animal chosen here?
+                        Console.WriteLine ($"Where would you like to plant the Sunflowers?");
+
+                        Console.Write ("> ");
+
+                        int choice = Int32.Parse(Console.ReadLine ());
+                        choice--;
+                        if(choice < farm.NaturalFields.Count)
+                            farm.NaturalFields[choice].AddResource(farm, (INaturalFieldDwelling)seed);
+                        else
+                            farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, (IPlowedFieldDwelling)seed);
+                    }
                 }
-
-                Console.WriteLine ();
-
-                // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Where would you like to plant the Sunflowers?");
-
-                Console.Write ("> ");
-
-                int choice = Int32.Parse(Console.ReadLine ());
-                choice--;
-                if(choice < farm.NaturalFields.Count)
-                    farm.NaturalFields[choice].AddResource(farm, (INaturalFieldDwelling)seed);
-                else
-                    farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, (IPlowedFieldDwelling)seed);
 
                 /*
                     Couldn't get this to work. Can you?
