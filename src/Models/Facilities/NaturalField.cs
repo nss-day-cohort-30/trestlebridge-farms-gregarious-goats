@@ -30,10 +30,18 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (List<INaturalFieldDwelling> plants)
+        public void AddResource (Farm farm, List<INaturalFieldDwelling> plants)
         {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);
+            }
+            else {
+                for (int i =  _plants.Count; i < _capacity; i++)
+                {
+                    _plants.Add(plants[0]);
+                    plants.Remove(plants[0]);
+                }
+                ChooseNaturalField.CollectInput(farm, plants);
             }
         }
 

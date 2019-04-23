@@ -32,7 +32,7 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (List<IHouseDwelling> animals)
+        public void AddResource (Farm farm, List<IHouseDwelling> animals)
         {
             if (_animals.Count + animals.Count <= _capacity) {
                 _animals.AddRange(animals);
