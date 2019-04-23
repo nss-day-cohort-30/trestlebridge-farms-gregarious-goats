@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Actions;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -20,15 +21,14 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (IHouseDwelling animal)
+        public void AddResource (Farm farm, IHouseDwelling animal)
         {
             if (_animals.Count < _capacity) {
                 _animals.Add(animal);
             } else {
                 Console.WriteLine(@"**** That facililty is not large enough ****
 ****     Please choose another one      ****");
-                // this.AddResource(animal);
-                // TODO: Show menu again!!
+                ChooseDuckHouse.CollectInput(farm, animal);
             }
         }
 

@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Actions;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -18,10 +19,14 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (INaturalFieldDwelling plant)
+        public void AddResource (Farm farm, INaturalFieldDwelling plant)
         {
             if (_plants.Count < _capacity) {
                 _plants.Add(plant);
+            } else {
+                Console.WriteLine(@"**** That facililty is not large enough ****
+****     Please choose another one      ****");
+                ChooseNaturalField.CollectInput(farm, plant);
             }
         }
 

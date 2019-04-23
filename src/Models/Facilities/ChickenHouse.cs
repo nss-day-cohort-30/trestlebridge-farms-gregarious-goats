@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Actions;
 
 
 namespace Trestlebridge.Models.Facilities {
@@ -18,10 +19,14 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (IHouseDwelling animal)
+        public void AddResource (Farm farm, IHouseDwelling animal)
         {
             if (_animals.Count < _capacity) {
                 _animals.Add(animal);
+            } else {
+                Console.WriteLine(@"**** That facililty is not large enough ****
+****     Please choose another one      ****");
+                ChooseChickenHouse.CollectInput(farm, animal);
             }
         }
 
