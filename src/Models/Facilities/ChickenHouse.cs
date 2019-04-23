@@ -11,7 +11,7 @@ namespace Trestlebridge.Models.Facilities {
         private int _capacity = 15;
         private Guid _id = Guid.NewGuid();
 
-        private List<IHouseDwelling> _animals = new List<IHouseDwelling>();
+        public List<IHouseDwelling> _animals = new List<IHouseDwelling>();
 
         public double Capacity {
             get {
@@ -43,7 +43,7 @@ namespace Trestlebridge.Models.Facilities {
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
             output.Append($"Chicken house {shortId} has {this._animals.Count} animals\n");
-            // this._animals.ForEach(a => output.Append($"   {a}\n"));
+            this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }

@@ -12,7 +12,7 @@ namespace Trestlebridge.Models.Facilities {
         private int _capacity = 20;
         private Guid _id = Guid.NewGuid();
 
-        private List<IGrazing> _animals = new List<IGrazing>();
+        public List<IGrazing> _animals = new List<IGrazing>();
 
         public double Capacity {
             get {
@@ -44,7 +44,7 @@ namespace Trestlebridge.Models.Facilities {
             string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
             output.Append($"Grazing field {shortId} has {this._animals.Count} animals\n");
-            // this._animals.ForEach(a => output.Append($"   {a}\n"));
+            this._animals.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
