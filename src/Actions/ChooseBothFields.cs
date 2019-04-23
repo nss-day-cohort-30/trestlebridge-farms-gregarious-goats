@@ -64,7 +64,7 @@ namespace Trestlebridge.Actions {
                 Console.WriteLine ();
 
                 // How can I output the type of animal chosen here?
-                Console.WriteLine ($"Where would you like to plant the {seeds[0].Type}?");
+                Console.WriteLine ($"Where would you like to plant {seeds.Count} {seeds[0].Type} seeds?");
 
                 Console.Write ("> ");
 
@@ -73,12 +73,12 @@ namespace Trestlebridge.Actions {
                 if(choice < farm.NaturalFields.Count)
                 {
                     List<INaturalFieldDwelling> seed = seeds.Cast<INaturalFieldDwelling>().ToList();
-                    farm.NaturalFields[choice].AddResource( seed);
+                    farm.NaturalFields[choice].AddResource(farm, seed);
                 }
                 else
                 {
                     List<IPlowedFieldDwelling> seed = seeds.Cast<IPlowedFieldDwelling>().ToList();
-                    farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(seed);
+                    farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, seed);
                 }
 
                 /*
