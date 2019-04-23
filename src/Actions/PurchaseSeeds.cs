@@ -20,7 +20,7 @@ namespace Trestlebridge.Actions {
             string choice = Console.ReadLine ();
 
             Console.WriteLine ();
-            Console.WriteLine ("How many Sunflower would you like to plant?");
+            Console.WriteLine ("How many would you like to plant?");
 
             Console.Write ("> ");
             string qty = Console.ReadLine ();
