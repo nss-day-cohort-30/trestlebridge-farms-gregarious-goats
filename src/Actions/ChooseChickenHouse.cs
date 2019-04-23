@@ -22,7 +22,7 @@ namespace Trestlebridge.Actions {
             Console.Write ("> ");
             int choice = Int32.Parse(Console.ReadLine ());
 
-            farm.ChickenHouses[choice - 1].AddResource(animal);
+            farm.ChickenHouses[choice - 1].AddResource(farm, animal);
 
             /*
                 Couldn't get this to work. Can you?
