@@ -36,7 +36,7 @@ namespace Trestlebridge.Actions {
                 // farm.PurchaseResource<IGrazing>(animal, choice);
             }
         }
-        public static void CollectInput (Farm farm, List<INaturalFieldDwelling> seed) {
+        public static void CollectInput (Farm farm, List<INaturalFieldDwelling> seeds) {
             //Console.Clear();
             if (farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field first! ***");
@@ -56,7 +56,7 @@ namespace Trestlebridge.Actions {
                 Console.Write ("> ");
                 int choice = Int32.Parse(Console.ReadLine ());
 
-                farm.NaturalFields[choice-1].AddResource(farm, seed);
+                farm.NaturalFields[choice-1].AddResource(seeds);
 
                 /*
                     Couldn't get this to work. Can you?
