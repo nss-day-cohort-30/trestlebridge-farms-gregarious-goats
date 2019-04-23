@@ -42,7 +42,6 @@ namespace Trestlebridge.Models.Facilities {
                     plants.Remove(plants[0]);
                 }
                 //if(plants[0].Type == "SunFlower")
-
                 //     ChooseBothField.CollectInput(farm,plants);
                 // else
                     ChoosePlowedField.CollectInput(farm, plants);
