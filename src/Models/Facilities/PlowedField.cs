@@ -30,14 +30,21 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (List<IPlowedFieldDwelling> plants)
+        public void AddResource (Farm farm, List<IPlowedFieldDwelling> plants)
         {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);
             }
-            else
-            {
-                
+            else {
+                for (int i =  _plants.Count; i < _capacity; i++)
+                {
+                    _plants.Add(plants[0]);
+                    plants.Remove(plants[0]);
+                }
+                //if(plants[0].Type == "SunFlower")
+                //     ChooseBothField.CollectInput(farm,plants);
+                // else
+                    ChoosePlowedField.CollectInput(farm, plants);
             }
         }
 
