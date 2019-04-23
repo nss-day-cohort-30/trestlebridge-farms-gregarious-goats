@@ -16,11 +16,11 @@ namespace Trestlebridge.Actions {
             } else {
                 for (int i = 0; i < farm.NaturalFields.Count; i++)
                 {
-                    Console.WriteLine ($"{i + 1}. Natural Field");
+                    Console.WriteLine ($"{i + 1}. Natural Field ({farm.NaturalFields[i]._plants.Count}/{farm.NaturalFields[i].Capacity} rows of plants)");
                 }
                 for (int i = 0; i < farm.PlowedFields.Count; i++)
                 {
-                    Console.WriteLine ($"{farm.NaturalFields.Count+ i + 1}. Plowed Field");
+                    Console.WriteLine ($"{farm.NaturalFields.Count+ i + 1}. Plowed Field ({farm.PlowedFields[i]._plants.Count}/{farm.PlowedFields[i].Capacity} rows of plants)");
                 }
 
                 Console.WriteLine ();

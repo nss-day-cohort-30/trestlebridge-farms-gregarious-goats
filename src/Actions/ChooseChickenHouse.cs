@@ -3,6 +3,7 @@ using System.Linq;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
+using Trestlebridge.Models.Facilities;
 
 namespace Trestlebridge.Actions {
     public class ChooseChickenHouse {
@@ -15,7 +16,7 @@ namespace Trestlebridge.Actions {
             } else {
                 for (int i = 0; i < farm.ChickenHouses.Count; i++)
                 {
-                    Console.WriteLine ($"{i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count} animals)");
+                    Console.WriteLine ($"{i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count}/{farm.ChickenHouses[i].Capacity} animals)");
                 }
 
                 Console.WriteLine ();
