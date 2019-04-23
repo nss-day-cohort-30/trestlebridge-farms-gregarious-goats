@@ -10,7 +10,7 @@ using Trestlebridge.Models;
 namespace Trestlebridge.Models.Facilities {
     public class DuckHouse : IFacility<IHouseDwelling>
     {
-        private int _capacity = 1;
+        private int _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
         public List<IHouseDwelling> _animals = new List<IHouseDwelling>();
