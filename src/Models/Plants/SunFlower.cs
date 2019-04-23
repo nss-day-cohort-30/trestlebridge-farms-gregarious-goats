@@ -4,7 +4,7 @@ using Trestlebridge.Models.BaseClasses;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class SunFlower : Plant, IResource, ISeedProducing,INaturalFieldDwelling, IPlowedFieldDwelling
+    public class SunFlower : Plant, IResource, ISeedProducing, INaturalFieldDwelling, IPlowedFieldDwelling
     {
         private int _seedsProduced = 40;
 
