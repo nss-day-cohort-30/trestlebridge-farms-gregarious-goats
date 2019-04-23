@@ -35,6 +35,10 @@ namespace Trestlebridge.Models.Facilities {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);
             }
+            else
+            {
+                
+            }
         }
 
         public override string ToString()
