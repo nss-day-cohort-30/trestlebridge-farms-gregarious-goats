@@ -9,6 +9,7 @@ namespace Trestlebridge.Models.Plants
         private int _seedsProduced = 40;
 
         public Sesame () :base ("Sesame") {   }
+
         public double Harvest () {
             return _seedsProduced;
         }
