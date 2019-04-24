@@ -4,5 +4,6 @@ namespace Trestlebridge.Interfaces
     {
         double GrassPerDay { get; set; }
         void Graze();
+        string Type { set; get; }
     }
 }
