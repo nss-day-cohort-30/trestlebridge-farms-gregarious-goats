@@ -69,14 +69,14 @@ namespace Trestlebridge.Actions {
                     for (int i = 0; i < farm.NaturalFields.Count; i++)
                     {
                         var groupedPlants = farm.NaturalFields[i]._plants.GroupBy(
-                                    currentPlant => currentPlant.Type
-                                    );
-                                var plantString = "";
-                                foreach (var currentPlantGroup in groupedPlants)
-                                {
-                                    plantString += currentPlantGroup.Count() + " " + currentPlantGroup.Key + ",";
-                                };
-                                Console.WriteLine($"{i + 1}. Natural Field ({plantString})");
+                            currentPlant => currentPlant.Type
+                            );
+                        var plantString = "";
+                        foreach (var currentPlantGroup in groupedPlants)
+                        {
+                            plantString += currentPlantGroup.Count() + " " + currentPlantGroup.Key + ",";
+                        };
+                        Console.WriteLine($"{i + 1}. Natural Field ({plantString})");
                     }
 
                     Console.WriteLine ();
