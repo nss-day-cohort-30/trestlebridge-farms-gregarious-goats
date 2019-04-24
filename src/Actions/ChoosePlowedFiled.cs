@@ -8,7 +8,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions {
     public class ChoosePlowedField {
         public static void CollectInput (Farm farm, IPlowedFieldDwelling seed) {
-            Console.Clear();
+            // Console.Clear();
             if (farm.PlowedFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a plowed field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");

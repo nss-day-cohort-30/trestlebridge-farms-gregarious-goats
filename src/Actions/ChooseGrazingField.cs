@@ -8,7 +8,7 @@ using Trestlebridge.Models.BaseClasses;
 namespace Trestlebridge.Actions {
     public class ChooseGrazingField {
         public static void CollectInput (Farm farm, IGrazing animal) {
-            Console.Clear();
+            // Console.Clear();
             if (farm.GrazingFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a grazing field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");

@@ -8,7 +8,7 @@ using Trestlebridge.Models.Animals;
 namespace Trestlebridge.Actions {
     public class ChooseNaturalField {
         public static void CollectInput (Farm farm, INaturalFieldDwelling seed) {
-            Console.Clear();
+            // Console.Clear();
             if (farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
@@ -47,7 +47,7 @@ namespace Trestlebridge.Actions {
             }
         }
         public static void CollectInput (Farm farm, List<INaturalFieldDwelling> seeds) {
-            Console.Clear();
+            // Console.Clear();
             if (farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
