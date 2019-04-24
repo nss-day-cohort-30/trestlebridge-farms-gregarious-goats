@@ -22,13 +22,7 @@ namespace Trestlebridge.Models.Facilities {
 
         public void AddResource (Farm farm, IGrazing animal)
         {
-            if (_animals.Count < _capacity) {
                 _animals.Add(animal);
-            } else {
-                Console.WriteLine(@"**** That facililty is not large enough ****
-****     Please choose another one      ****");
-                ChooseGrazingField.CollectInput(farm, animal);
-            }
         }
 
         public void AddResource (Farm farm, List<IGrazing> animals)
@@ -48,5 +42,6 @@ namespace Trestlebridge.Models.Facilities {
 
             return output.ToString();
         }
+
     }
 }
