@@ -8,8 +8,8 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions {
     public class ChooseBothField {
-        public static void CollectInput (Farm farm, SunFlower seed) {
-            // Console.Clear();
+        public static void CollectInput (Farm farm, IAnyFieldDwelling seed) {
+            //Console.Clear();
             if (farm.PlowedFields.Count() == 0 && farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field or plowed field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
@@ -60,8 +60,13 @@ namespace Trestlebridge.Actions {
                 // farm.PurchaseResource<IGrazing>(animal, choice);
             }
         }
+<<<<<<< HEAD
         public static void CollectInput (Farm farm, List<SunFlower> seeds) {
             // Console.Clear();
+=======
+        public static void CollectInput (Farm farm, List<IAnyFieldDwelling> seeds) {
+            //Console.Clear();
+>>>>>>> master
             if (farm.PlowedFields.Count() == 0 && farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field or plowed field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
