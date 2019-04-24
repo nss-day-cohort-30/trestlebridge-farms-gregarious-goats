@@ -9,6 +9,6 @@ namespace Trestlebridge.Interfaces
         double Capacity { get; }
 
         void AddResource (Farm farm, T resource);
-        void AddResource (List<T> resources);
+        void AddResource (Farm farm, List<T> resources);
     }
 }
