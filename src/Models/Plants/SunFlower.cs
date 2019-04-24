@@ -4,12 +4,13 @@ using Trestlebridge.Models.BaseClasses;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class SunFlower : Plant, IResource, ISeedProducing,INaturalFieldDwelling, IPlowedFieldDwelling
+    public class SunFlower : Plant, IResource, ISeedProducing, IAnyFieldDwelling, IPlowedFieldDwelling, INaturalFieldDwelling
     {
         private int _seedsProduced = 40;
 
-        public SunFlower () :base ("SunFlower") {   }
-        public double Harvest () {
+        public SunFlower() : base("SunFlower") { }
+        public double Harvest()
+        {
             return _seedsProduced;
         }
     }
