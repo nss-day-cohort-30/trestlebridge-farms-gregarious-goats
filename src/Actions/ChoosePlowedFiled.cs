@@ -38,13 +38,13 @@ namespace Trestlebridge.Actions {
                         farm.PlowedFields[choice-1].AddResource(farm, seed);
                     }
 
+            }
+        }
                 /*
                     Couldn't get this to work. Can you?
                     Stretch goal. Only if the app is fully functional.
                 */
                 // farm.PurchaseResource<IGrazing>(animal, choice);
-            }
-        }
         }
 
         public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> seeds)
