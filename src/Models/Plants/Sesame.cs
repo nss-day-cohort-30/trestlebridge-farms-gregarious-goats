@@ -1,16 +1,19 @@
 using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.BaseClasses;
+using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Plants
 {
     public class Sesame : Plant, IResource, ISeedProducing, IPlowedFieldDwelling
     {
-        private int _seedsProduced = 40;
+        private double _seedsProduced = 520;
 
         public Sesame () :base ("Sesame") {   }
 
-        public double Harvest () {
+        // Methods
+        public double Process(SeedHarvester x)
+        {
             return _seedsProduced;
         }
     }

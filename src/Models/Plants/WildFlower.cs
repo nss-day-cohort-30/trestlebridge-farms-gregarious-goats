@@ -1,16 +1,19 @@
 using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.BaseClasses;
+using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Plants
 {
-    public class WildFlower : Plant, IResource, ISeedProducing, INaturalFieldDwelling
+    public class WildFlower : Plant, IResource, ICompostProducing, INaturalFieldDwelling
     {
-        private int _seedsProduced = 40;
+        public double _compostProduced { get; } = 30.3;
 
         public WildFlower () :base ("WildFlower") {   }
-        public double Harvest () {
-            return _seedsProduced;
+        // Methods
+        public double Process(Composter x)
+        {
+            return _compostProduced;
         }
     }
 }
