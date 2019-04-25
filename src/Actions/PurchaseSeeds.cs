@@ -17,7 +17,8 @@ namespace Trestlebridge.Actions
             List<T> ListOfChosenPlants = new List<T>();
             for (int i = 0; i < qty; i++)
             {
-                ListOfChosenPlants.Add(plant);
+                dynamic x = Activator.CreateInstance(plant.GetType());
+                ListOfChosenPlants.Add(x);
             }
             return ListOfChosenPlants;
         }
