@@ -32,6 +32,19 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
+        public void RemoveResource (Farm farm, IGrazing animal)
+        {
+                _animals.Remove(animal);
+        }
+
+        public void RemoveResource (Farm farm, List<IGrazing> animals)
+        {
+            if (_animals.Count - animals.Count > 0) {
+                for(int i = 0; i < animals.Count; i++)
+                    _animals.Remove(animals[i]);
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
@@ -42,6 +55,5 @@ namespace Trestlebridge.Models.Facilities {
 
             return output.ToString();
         }
-
     }
 }
