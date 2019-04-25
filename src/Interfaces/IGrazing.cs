@@ -1,7 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IGrazing
+    public interface IGrazing : IResource
     {
-        string Type { set; get; }
     }
 }

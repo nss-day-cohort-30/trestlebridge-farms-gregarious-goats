@@ -1,9 +1,7 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IAnyFieldDwelling
+    public interface IAnyFieldDwelling : IResource
     {
         // What do all field dwelling plants have to have?
-        string Type {get;}
-
     }
 }

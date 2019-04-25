@@ -1,8 +1,8 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IHouseDwelling
+    public interface IHouseDwelling : IResource
     {
         // What do all house dwelling animals have to have?
-        string Type { set; get; }
+
     }
 }

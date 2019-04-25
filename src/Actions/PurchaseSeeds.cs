@@ -57,19 +57,19 @@ namespace Trestlebridge.Actions
             {
                 if (qty != 1)
                 {
-                    List<IAnyFieldDwelling> plants = MakeListOfPlants(qty, (IAnyFieldDwelling)chosenPlantType);
+                    List<IResource> plants = MakeListOfPlants(qty, (IResource)chosenPlantType);
                     ChooseBothField.CollectInput(farm, plants);
                 }
                 else
                 {
-                    ChooseBothField.CollectInput(farm, (IAnyFieldDwelling)chosenPlantType);
+                    ChooseBothField.CollectInput(farm, (IResource)chosenPlantType);
                 }
             }
             else if (chosenPlantType is IPlowedFieldDwelling)
             {
                 if (qty != 1)
                 {
-                    List<IPlowedFieldDwelling> plants = MakeListOfPlants(qty, (IPlowedFieldDwelling)chosenPlantType);
+                    List<IResource> plants = MakeListOfPlants(qty, (IResource)chosenPlantType);
                     ChoosePlowedField.CollectInput(farm, plants);
                 }
                 else
@@ -81,12 +81,12 @@ namespace Trestlebridge.Actions
             {
                 if (qty != 1)
                 {
-                    List<INaturalFieldDwelling> plants = MakeListOfPlants(qty, (INaturalFieldDwelling)chosenPlantType);
+                    List<IResource> plants = MakeListOfPlants(qty, (IResource)chosenPlantType);
                     ChooseNaturalField.CollectInput(farm, plants);
                 }
                 else
                 {
-                    ChooseNaturalField.CollectInput(farm, (INaturalFieldDwelling)chosenPlantType);
+                    ChooseNaturalField.CollectInput(farm, (IResource)chosenPlantType);
                 }
             }
         }

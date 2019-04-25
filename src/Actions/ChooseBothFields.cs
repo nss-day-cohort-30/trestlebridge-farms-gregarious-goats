@@ -8,7 +8,7 @@ using Trestlebridge.Models.Plants;
 
 namespace Trestlebridge.Actions {
     public class ChooseBothField {
-        public static void CollectInput (Farm farm, IAnyFieldDwelling seed) {
+        public static void CollectInput (Farm farm, IResource seed) {
             //Console.Clear();
             if (farm.PlowedFields.Count() == 0 && farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field or plowed field first! ***");
@@ -80,7 +80,7 @@ namespace Trestlebridge.Actions {
                 catch (FormatException){}
             }
         }
-        public static void CollectInput (Farm farm, List<IAnyFieldDwelling> seeds) {
+        public static void CollectInput (Farm farm, List<IResource> seeds) {
             //Console.Clear();
             if (farm.PlowedFields.Count() == 0 && farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field or plowed field first! ***");
@@ -125,14 +125,14 @@ namespace Trestlebridge.Actions {
                     choice--;
                     if(choice < farm.NaturalFields.Count)
                     {
-                        List<INaturalFieldDwelling> seed = seeds.Cast<INaturalFieldDwelling>().ToList();
+                        List<IResource> seed = seeds.Cast<IResource>().ToList();
                         farm.NaturalFields[choice].AddResource(farm, seed);
                     }
                     else
                     {
-                        List<IPlowedFieldDwelling> seed = seeds.Cast<IPlowedFieldDwelling>().ToList();
+                        List<IResource> seed = seeds.Cast<IResource>().ToList();
                         farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, seed);
-                        
+
                     }
                 }
                 catch (FormatException){}
