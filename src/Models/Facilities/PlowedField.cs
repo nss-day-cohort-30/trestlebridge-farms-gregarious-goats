@@ -42,6 +42,15 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
+        public void RemoveResource (Farm farm, IPlowedFieldDwelling plant) {
+                    _plants.Remove (plant);
+            }
+        public void RemoveResource (Farm farm, List<IPlowedFieldDwelling> plants) {
+            if (_plants.Count - plants.Count > 0) {
+                for (int i = 0; i < plants.Count; i++)
+                    _plants.Remove (plants[0]);
+            }
+        }
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();

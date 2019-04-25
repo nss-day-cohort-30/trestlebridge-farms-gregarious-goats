@@ -132,6 +132,7 @@ namespace Trestlebridge.Actions {
                     {
                         List<IPlowedFieldDwelling> seed = seeds.Cast<IPlowedFieldDwelling>().ToList();
                         farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, seed);
+                        
                     }
                 }
                 catch (FormatException){}
