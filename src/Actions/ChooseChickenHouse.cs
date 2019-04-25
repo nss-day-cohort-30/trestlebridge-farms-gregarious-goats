@@ -9,7 +9,7 @@ namespace Trestlebridge.Actions
 {
     public class ChooseChickenHouse
     {
-        public static void CollectInput(Farm farm, IHouseDwelling animal) {
+        public static void CollectInput(Farm farm, IResource animal) {
             // Console.Clear();
             if (farm.ChickenHouses.Count() == 0)
             {

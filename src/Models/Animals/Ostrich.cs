@@ -5,7 +5,7 @@ using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Animals
 {
-    public class Ostrich : Animal, IGrazing, IMeatProducing, IEggProducing
+    public class Ostrich : Animal, IResource, IGrazing, IMeatProducing, IEggProducing
     {
         // Properties:
         public double _eggsProduced { get; } = 3;
