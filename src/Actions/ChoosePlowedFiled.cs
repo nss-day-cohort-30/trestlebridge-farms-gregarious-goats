@@ -6,7 +6,7 @@ using Trestlebridge.Models;
 
 namespace Trestlebridge.Actions {
     public class ChoosePlowedField {
-        public static void CollectInput (Farm farm, IPlowedFieldDwelling seed) {
+        public static void CollectInput (Farm farm, IResource seed) {
             // Console.Clear();
             if (farm.PlowedFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a plowed field first! ***");
@@ -58,7 +58,7 @@ namespace Trestlebridge.Actions {
                 // farm.PurchaseResource<IGrazing>(animal, choice);
         }
 
-        public static void CollectInput(Farm farm, List<IPlowedFieldDwelling> seeds)
+        public static void CollectInput(Farm farm, List<IResource> seeds)
         {
             if (farm.NaturalFields.Count() == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a plowed field first! ***");

@@ -6,12 +6,12 @@ using Trestlebridge.Actions;
 
 
 namespace Trestlebridge.Models.Facilities {
-    public class PlowedField : IFacility<IPlowedFieldDwelling>
+    public class PlowedField : IFacility<IResource>
     {
         private double _capacity = 13;
         private Guid _id = Guid.NewGuid();
 
-        public List<IPlowedFieldDwelling> _plants = new List<IPlowedFieldDwelling>();
+        public List<IResource> _plants = new List<IResource>();
 
         public double Capacity {
             get {
@@ -19,12 +19,12 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (Farm farm, IPlowedFieldDwelling plant)
+        public void AddResource (Farm farm, IResource plant)
         {
                 _plants.Add(plant);
         }
 
-        public void AddResource (Farm farm, List<IPlowedFieldDwelling> plants)
+        public void AddResource (Farm farm, List<IResource> plants)
         {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange(plants);
@@ -42,10 +42,10 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void RemoveResource (Farm farm, IPlowedFieldDwelling plant) {
+        public void RemoveResource (Farm farm, IResource plant) {
                     _plants.Remove (plant);
             }
-        public void RemoveResource (Farm farm, List<IPlowedFieldDwelling> plants) {
+        public void RemoveResource (Farm farm, List<IResource> plants) {
             if (_plants.Count - plants.Count > 0) {
                 for (int i = 0; i < plants.Count; i++)
                     _plants.Remove (plants[0]);

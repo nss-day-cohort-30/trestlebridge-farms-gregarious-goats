@@ -8,12 +8,12 @@ using Trestlebridge.Models;
 
 
 namespace Trestlebridge.Models.Facilities {
-    public class DuckHouse : IFacility<IHouseDwelling>
+    public class DuckHouse : IFacility<IResource>
     {
         private double _capacity = 12;
         private Guid _id = Guid.NewGuid();
 
-        public List<IHouseDwelling> _animals = new List<IHouseDwelling>();
+        public List<IResource> _animals = new List<IResource>();
 
         public double Capacity {
             get {
@@ -21,24 +21,24 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (Farm farm, IHouseDwelling animal)
+        public void AddResource (Farm farm, IResource animal)
         {
                 _animals.Add(animal);
         }
 
-        public void AddResource(Farm farm, List<IHouseDwelling> animals)
+        public void AddResource(Farm farm, List<IResource> animals)
         {
             if (_animals.Count + animals.Count <= _capacity) {
                 _animals.AddRange(animals);
             }
         }
 
-        public void RemoveResource (Farm farm, IHouseDwelling animal) {
+        public void RemoveResource (Farm farm, IResource animal) {
             if (_animals.Count + 1 > 0) {
                     _animals.Remove (animal);
             }
         }
-        public void RemoveResource (Farm farm, List<IHouseDwelling> animals) {
+        public void RemoveResource (Farm farm, List<IResource> animals) {
             if (_animals.Count + animals.Count > 0) {
                 for (int i = 0; i < animals.Count; i++)
                     _animals.Remove (animals[0]);
