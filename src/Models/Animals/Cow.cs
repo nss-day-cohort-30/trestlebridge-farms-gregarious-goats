@@ -8,7 +8,6 @@ namespace Trestlebridge.Models.Animals
     {
         // Properties:
         public double _meatProduced { get; } = 18.25;
-        public double GrassPerDay { get; set; } = 5.4;
 
         // Constructor:
         public Cow()
@@ -17,12 +16,7 @@ namespace Trestlebridge.Models.Animals
         }
 
         // Methods
-        public void Graze()
-        {
-            Console.WriteLine($"Cow {ShortId} just ate {GrassPerDay}kg of grass");
-        }
-
-        public double Butcher()
+        public double Process(MeatProcessor x)
         {
             return _meatProduced;
         }

@@ -8,7 +8,6 @@ namespace Trestlebridge.Models.Animals
     {
         // Properties:
         public double _compostProduced { get; } = 7.5;
-        public double GrassPerDay { get; set; } = 2.0;
 
         // Constructor:
         public Goat()
@@ -17,12 +16,7 @@ namespace Trestlebridge.Models.Animals
         }
 
         // Methods
-        public void Graze()
-        {
-            Console.WriteLine($"Goat {ShortId} just ate {GrassPerDay}kg of grass");
-        }
-
-        public double CollectCompost()
+        public double Process(Composter x)
         {
             return _compostProduced;
         }
