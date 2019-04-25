@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Animals
 {

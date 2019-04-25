@@ -1,6 +1,7 @@
 using System;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Models.BaseClasses;
+using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Plants
 {
