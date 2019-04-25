@@ -65,9 +65,9 @@ namespace Trestlebridge.Actions {
                             int choice = Int32.Parse(Console.ReadLine ());
                             choice--;
                             if(choice < farm.NaturalFields.Count)
-                                farm.NaturalFields[choice].AddResource(farm, (INaturalFieldDwelling)seed);
+                                farm.NaturalFields[choice].AddResource(farm, (IResource)seed);
                             else
-                                farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, (IPlowedFieldDwelling)seed);
+                                farm.PlowedFields[choice-farm.NaturalFields.Count].AddResource(farm, (IResource)seed);
                         }
                     }
 

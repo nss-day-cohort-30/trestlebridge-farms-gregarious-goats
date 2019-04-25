@@ -74,7 +74,7 @@ namespace Trestlebridge.Actions
                 }
                 else
                 {
-                    ChoosePlowedField.CollectInput(farm, (IPlowedFieldDwelling)chosenPlantType);
+                    ChoosePlowedField.CollectInput(farm, (IResource)chosenPlantType);
                 }
             }
             else
