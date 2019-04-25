@@ -33,17 +33,14 @@ namespace Trestlebridge.Actions {
                         Console.WriteLine($"{farm.GrazingFields.Count + i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count} chickens)");
                     }
                         Console.WriteLine ();
-
                         Console.WriteLine ($"Which facility has the animals you want to process?");
-
                         Console.Write ("> ");
 
-                        string input = Console.ReadLine ();
+                        int choice = Int32.Parse(Console.ReadLine());
 
-                        switch (Int32.Parse(input))
-                        {
-                            case 1:
-                                var groupedAnimals = farm.GrazingFields[0]._animals.GroupBy(
+                        if (choice <= farm.GrazingFields.Count) {
+                            Console.WriteLine("The following animals are in the grazing field:");
+                            var groupedAnimals = farm.GrazingFields[choice - 1]._animals.GroupBy(
                                     currentAnimal => currentAnimal.Type
                                     );
                                 var i = 1;
@@ -52,10 +49,29 @@ namespace Trestlebridge.Actions {
                                     Console.WriteLine($"{i}. {currentAnimalGroup.Count() + " " + currentAnimalGroup.Key}");
                                     i++;
                                 };
-                                break;
-                            case 2:
-                                //something
-                                break;
+
+                                Console.WriteLine ();
+                                Console.WriteLine("Which resource should be processed?");
+                                Console.Write ("> ");
+
+                                int input = Int32.Parse(Console.ReadLine ());
+
+                        } else {
+                            Console.WriteLine("The following animals are in the chicken house:");
+                            var groupedAnimals = farm.ChickenHouses[choice - farm.GrazingFields.Count - 1]._animals.GroupBy(
+                                    currentAnimal => currentAnimal.Type
+                                    );
+                                var i = 1;
+                                foreach (var currentAnimalGroup in groupedAnimals)
+                                {
+                                    Console.WriteLine($"{i}. {currentAnimalGroup.Count() + " " + currentAnimalGroup.Key}");
+                                    i++;
+                                };
+                                Console.WriteLine ();
+                                Console.WriteLine("Which resource should be processed?");
+                                Console.Write ("> ");
+
+                                int input = Int32.Parse(Console.ReadLine ());
                         }
                     }
                 catch (FormatException){}
