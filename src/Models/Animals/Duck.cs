@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Trestlebridge.Interfaces;
+using Trestlebridge.Equipments;
 
 namespace Trestlebridge.Models.Animals
 {
@@ -17,11 +18,11 @@ namespace Trestlebridge.Models.Animals
         }
 
         // Methods
-        public double CollectEggs()
+        public double Process(EggGatherer x)
         {
             return _eggsProduced;
         }
-        public double CollectFeathers()
+        public double Process(FeatherHarvester x)
         {
             return _feathersProduced;
         }
