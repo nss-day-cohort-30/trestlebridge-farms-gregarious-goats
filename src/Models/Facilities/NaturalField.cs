@@ -5,11 +5,11 @@ using Trestlebridge.Actions;
 using Trestlebridge.Interfaces;
 
 namespace Trestlebridge.Models.Facilities {
-    public class NaturalField : IFacility<INaturalFieldDwelling> {
+    public class NaturalField : IFacility<IResource> {
         private double _capacity = 10;
         private Guid _id = Guid.NewGuid ();
 
-        public List<INaturalFieldDwelling> _plants = new List<INaturalFieldDwelling> ();
+        public List<IResource> _plants = new List<IResource> ();
 
         public double Capacity {
             get {
@@ -17,11 +17,11 @@ namespace Trestlebridge.Models.Facilities {
             }
         }
 
-        public void AddResource (Farm farm, INaturalFieldDwelling plant) {
+        public void AddResource (Farm farm, IResource plant) {
             _plants.Add (plant);
         }
 
-        public void AddResource (Farm farm, List<INaturalFieldDwelling> plants) {
+        public void AddResource (Farm farm, List<IResource> plants) {
             if (_plants.Count + plants.Count <= _capacity) {
                 _plants.AddRange (plants);
             } else {
@@ -32,12 +32,12 @@ namespace Trestlebridge.Models.Facilities {
                 ChooseNaturalField.CollectInput (farm, plants);
             }
         }
-         public void RemoveResource (Farm farm, INaturalFieldDwelling plant) {
+         public void RemoveResource (Farm farm, IResource plant) {
             if (_plants.Count - 1 > 0) {
                     _plants.Remove (plant);
             }
         }
-        public void RemoveResource (Farm farm, List<INaturalFieldDwelling> plants) {
+        public void RemoveResource (Farm farm, List<IResource> plants) {
             if (_plants.Count - plants.Count > 0) {
                 for (int i = 0; i < plants.Count; i++)
                     _plants.Remove (plants[0]);
