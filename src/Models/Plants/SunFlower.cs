@@ -7,7 +7,7 @@ namespace Trestlebridge.Models.Plants
 {
     public class SunFlower : Plant, IResource, ISeedProducing, IAnyFieldDwelling, IPlowedFieldDwelling, INaturalFieldDwelling
     {
-        private int _seedsProduced = 650;
+        public double _seedsProduced { get; } = 650;
 
         private double _compostProduced = 21.6;
 

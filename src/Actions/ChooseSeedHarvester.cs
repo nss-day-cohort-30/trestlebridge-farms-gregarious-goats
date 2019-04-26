@@ -5,106 +5,186 @@ using Trestlebridge.Interfaces;
 using Trestlebridge.Models;
 using Trestlebridge.Models.Animals;
 using Trestlebridge.Models.BaseClasses;
-using Trestlebridge.Equipments;
-using Trestlebridge.Models.Plants;
 
-namespace Trestlebridge.Actions {
-        public class ChooseSeedHarvester {
-            public static void CollectInput (Farm farm) {
-                    // Console.Clear();
-                    if (farm.NaturalFields.Count == 0 && farm.PlowedFields.Count == 0) {
-                        Console.WriteLine ("*** Oops! You don't have any seeds Harvesting facilities! ***");
-                        Console.WriteLine ("*** Press return key to go back to main menu.");
-                        Console.ReadLine ();
-                    } else {
-                        try { // Show available facilities and plant counts
-                            SeedHarvester Equipment = new SeedHarvester();
-                            for (int p = 0; p < farm.NaturalFields.Count; p++) {
-                                var groupPlants = farm.NaturalFields[p].Resources.GroupBy (
-                                    currentPlant => currentPlant.Type
-                                );
-                                var plantsString = "";
-                                foreach (var currentPlantGroup in groupPlants) {
-                                    plantsString += currentPlantGroup.Count () + " " + currentPlantGroup.Key + ",";
-                                };
-                                Console.WriteLine ($"{p + 1}. Natural Field ({plantsString})");
-                            }
-                            Console.WriteLine ();
+namespace Trestlebridge.Actions
+{
+    public class ChooseSeedHarvester
+    {
+        public static void CollectInput(Farm farm)
+        {
+            if (farm.PlowedFields.Count == 0
+            && farm.NaturalFields.Count == 0)
+            {
+                Console.WriteLine("*** Oops! You don't have any seed-producing facilities! ***");
+                Console.WriteLine("*** Press return key to go back to main menu.");
+                Console.ReadLine();
+            }
+            else
+            {
+                // Create list of facilities that can have eggs:
+                List<Facility> FacilitiesThatHaveSeedProducers = new List<Facility>();
+                foreach (Facility facility in farm.PlowedFields)
+                {
+                    FacilitiesThatHaveSeedProducers.Add(facility);
+                }
+                foreach (Facility facility in farm.NaturalFields)
+                {
+                    FacilitiesThatHaveSeedProducers.Add(facility);
+                }
 
-                            Console.WriteLine ($"Which field you want to harvest?");
+                // Show users options for facilities
+                for (int i = 0; i < FacilitiesThatHaveSeedProducers.Count; i++)
+                {
+                    var groupedPlants = FacilitiesThatHaveSeedProducers[i].Resources.GroupBy(
+                        currentPlant => currentPlant.Type
+                    );
 
-                            int field = Int32.Parse (Console.ReadLine ());
+                    var plantString = "";
+                    foreach (var group in groupedPlants)
+                    {
+                        plantString += group.Count() + " " + group.Key + ", ";
+                    };
 
-                            //if (field <= farm.NaturalFields.Count) {
-                            Console.WriteLine ("The following plants in that field:");
-                            // var groupedPlants = farm.NaturalFields[field - 1].Resources.GroupBy (
-                            //     currentPlant => currentPlant.Type
-                            // );
-                            var groupedPlants =
-                                from plant in farm.NaturalFields[field - 1].Resources
-                            group plant by plant.Type into newGroup
-                            select newGroup;
 
-                            int j = 1;
-                            foreach (var currentPlantGroup in groupedPlants) {
-                                Console.WriteLine ($"{j}. {currentPlantGroup.Count() + " " + currentPlantGroup.Key}");
-                                j++;
-                            };
+                    Console.WriteLine($"{i + 1}: {FacilitiesThatHaveSeedProducers[i].GetType().ToString().Split(".")[FacilitiesThatHaveSeedProducers[i].GetType().ToString().Split(".").Count() - 1]} -- {plantString} ");
+                }
 
-                            Console.WriteLine ();
-                            Console.WriteLine ("Which Plants should be harvested?");
-                            Console.Write ("> ");
 
-                            int inputType= Int32.Parse (Console.ReadLine ());
-                            Console.WriteLine ();
-                            Console.WriteLine ("How many Plants you want be harvested?");
-                            Console.Write ("> ");
+                Console.WriteLine();
+                Console.WriteLine($"Which facility has the plants you want to process?");
+                Console.Write("> ");
 
-                            int qty = Int32.Parse (Console.ReadLine ());
-                            j = 1;
-                            List<Plant> selectedType = new List<Plant> ();
-                            foreach (var currentPlantGroup in groupedPlants) {
-                                if(j == inputType)
-                                    foreach (var selectedPlant in currentPlantGroup)
-                                    {
-                                        selectedType.Add((Plant)selectedPlant);
-                                    }
-                                j++;
-                            };
-                            Console.WriteLine(selectedType[0].Type);
-                            if(selectedType[0].Type == "SunFlower") {
-                                SunFlower sunny = new SunFlower();
-                                if(qty == 1)
+                int facilityChoiceNum = Int32.Parse(Console.ReadLine()) - 1;
+                if (facilityChoiceNum <= FacilitiesThatHaveSeedProducers.Count)
+                {
+                    var chosenFacility = FacilitiesThatHaveSeedProducers[facilityChoiceNum];
+                    var chosenFacilityId = chosenFacility.ShortId;
+                    var chosenFacilityPlantTypes = chosenFacility.Resources
+                    .GroupBy(plant => plant.Type)
+                    .Select(grp => grp.ToList())
+                    .ToList();
+                    Console.WriteLine("The following resource types are in that facility:");
+                    for (int i = 0; i < chosenFacilityPlantTypes.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}: {chosenFacilityPlantTypes[i].Count} x {chosenFacilityPlantTypes[i][0].Type}");
+                    }
+
+                    Console.WriteLine();
+                    Console.WriteLine("Which resource would you like to SMASH INTO SEEDS?");
+                    Console.Write("> ");
+
+
+                    int PlantTypeChoiceNum = Int32.Parse(Console.ReadLine()) - 1;
+
+                    string chosenPlantType = chosenFacilityPlantTypes[PlantTypeChoiceNum][0].Type;
+                    dynamic resourceClassTemplate = Activator.CreateInstance(chosenFacilityPlantTypes[PlantTypeChoiceNum][0].GetType());
+                    double seedConversionMultiplier = ((ISeedProducing)chosenFacilityPlantTypes[PlantTypeChoiceNum][0])._seedsProduced;
+
+                    if (PlantTypeChoiceNum <= chosenFacilityPlantTypes.Count)
+                    {
+                        Console.WriteLine($"How many of this type of resource would you like to SMASH INTO SEEDS?");
+                        Console.Write("> ");
+
+                        int numResourcesToProcessNum = Int32.Parse(Console.ReadLine());
+
+                        if (numResourcesToProcessNum <= chosenFacilityPlantTypes[PlantTypeChoiceNum].Count)
+                        {
+                            int SeedsReturned = numResourcesToProcessNum * Convert.ToInt32(seedConversionMultiplier);
+
+                            Console.WriteLine($"Are you sure you want to process these into {SeedsReturned} seeds? (y or n)");
+                            Console.WriteLine("> ");
+
+                            string yesOrNo = Console.ReadLine();
+                            if (yesOrNo == "y")
+                            {
+                                Console.WriteLine($"You did what you had to do. You have compressed {numResourcesToProcessNum} {chosenPlantType} into {SeedsReturned} seeds...");
+
+                                try
                                 {
-                                    farm.NaturalFields[field - 1].RemoveResource(farm, (IResource)selectedType[0]);
-                                    Console.WriteLine($"seeds : {sunny.Process(Equipment)}");
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
+                                }
+                                catch
+                                {
+                                }
+                                try
+                                {
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
+                                }
+                                catch
+                                {
+
+                                }
+                                try
+                                {
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
+                                }
+                                catch
+                                {
+
+                                }
+                                try
+                                {
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
+                                }
+                                catch
+                                {
+
+                                }
+                                try
+                                {
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
+                                }
+                                catch
+                                {
+
                                 }
                             }
-
-
-                            // if (qty >= 1) {
-                            //     farm.NaturalFields[field].RemoveResource (farm, selectedType);
-                            // }
-
-                            // } else {
-                            //     Console.WriteLine ("The following animals are in the chicken house:");
-                            //     var groupedAnimals = farm.ChickenHouses[choice - farm.GrazingFields.Count - 1].Resources.GroupBy (
-                            //         currentAnimal => currentAnimal.Type
-                            //     );
-                            //     var i = 1;
-                            //     foreach (var currentAnimalGroup in groupedAnimals) {
-                            //         Console.WriteLine ($"{i}. {currentAnimalGroup.Count() + " " + currentAnimalGroup.Key}");
-                            //         i++;
-                            //     };
-                            //     Console.WriteLine ();
-                            //     Console.WriteLine ("Which resource should be processed?");
-                            //     Console.Write ("> ");
-
-                            //     int input = Int32.Parse (Console.ReadLine ());
-                            // }
-                        } catch (FormatException) { }
-
+                            else
+                            {
+                                Console.WriteLine("You are truly merciful...");
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dont have enough of that resource to compress into that many eggs....");
+                        }
                     }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice, rerouting to main menu");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice, rerouting to main menu");
+                }
+
             }
         }
+    }
 }

@@ -109,9 +109,11 @@ namespace Trestlebridge.Actions
                                 try
                                 {
                                     for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
                                         farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
                                         .RemoveAt(farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
                                         .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
 
                                 }
                                 catch

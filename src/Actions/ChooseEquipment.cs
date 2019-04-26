@@ -25,7 +25,7 @@ namespace Trestlebridge.Actions {
                     // ChooseMeatProcessor.CollectInput(farm);
                     break;
                 case 2:
-                    ChooseEggGatherer.CollectInput(farm);
+                    // ChooseEggGatherer.CollectInput(farm);
                     break;
                 case 3:
                     // ChooseFeatherHarvester.CollectInput(farm);

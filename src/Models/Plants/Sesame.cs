@@ -7,7 +7,7 @@ namespace Trestlebridge.Models.Plants
 {
     public class Sesame : Plant, IResource, ISeedProducing, IPlowedFieldDwelling
     {
-        private double _seedsProduced = 520;
+        public double _seedsProduced { get; } = 520;
 
         public Sesame () :base ("Sesame") {   }
 
