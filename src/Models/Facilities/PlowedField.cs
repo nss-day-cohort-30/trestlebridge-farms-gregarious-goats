@@ -15,7 +15,7 @@ namespace Trestlebridge.Models.Facilities {
         {
             StringBuilder output = new StringBuilder();
 
-            output.Append($"Natural field {ShortId} has {this.Resources.Count} rows of plants\n");
+            output.Append($"Plowed field {ShortId} has {this.Resources.Count} rows of plants\n");
             this.Resources.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();

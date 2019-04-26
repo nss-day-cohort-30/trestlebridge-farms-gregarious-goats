@@ -61,7 +61,10 @@ namespace Trestlebridge.Models.BaseClasses
             if (Resources.Count - x.Count > 0)
             {
                 for (int i = 0; i < x.Count; i++)
-                    Resources.Remove(x[0]);
+                {
+                    Console.WriteLine($"{x.Count} x count");
+                    Console.WriteLine(Resources.Remove(x[i]));
+                }
             }
         }
         // **********************************************************
