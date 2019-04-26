@@ -10,7 +10,7 @@ namespace Trestlebridge.Actions {
         public static void CollectInput (Farm farm) {
             // Console.Clear();
             if (farm.NaturalFields.Count == 0 && farm.PlowedFields.Count == 0) {
-                Console.WriteLine("*** Oops! You don't have any meat-producing facilities! ***");
+                Console.WriteLine("*** Oops! You don't have any seeds Harvesting facilities! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
             }
