@@ -20,8 +20,8 @@ namespace Trestlebridge.Actions {
                     for (int i = 0; i < farm.GrazingFields.Count; i++)
                     {
                         // Only show facilities that are not full
-                        if (farm.GrazingFields[i]._animals.Count != farm.GrazingFields[i].Capacity) {
-                            var groupedAnimals = farm.GrazingFields[i]._animals.GroupBy(
+                        if (farm.GrazingFields[i].Resources.Count != farm.GrazingFields[i].Capacity) {
+                            var groupedAnimals = farm.GrazingFields[i].Resources.GroupBy(
                                 currentAnimal => currentAnimal.Type
                                 );
                             var animalsString = "";
