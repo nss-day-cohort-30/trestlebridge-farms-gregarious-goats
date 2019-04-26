@@ -51,14 +51,14 @@ namespace Trestlebridge.Models.BaseClasses
         // *********************************************************
         public void RemoveResource(Farm farm, IResource x)
         {
-            if (Resources.Count + 1 > 0)
+            if (Resources.Count - 1 > 0)
             {
                 Resources.Remove(x);
             }
         }
         public void RemoveResource(Farm farm, List<IResource> x)
         {
-            if (Resources.Count + x.Count > 0)
+            if (Resources.Count - x.Count > 0)
             {
                 for (int i = 0; i < x.Count; i++)
                     Resources.Remove(x[0]);
