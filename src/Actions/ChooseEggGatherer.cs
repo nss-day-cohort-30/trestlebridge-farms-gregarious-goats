@@ -18,7 +18,7 @@ namespace Trestlebridge.Actions
             && farm.DuckHouses.Count == 0
             && fieldsWithOstrichs.Count == 0)
             {
-                Console.WriteLine("*** Oops! You don't have any meat-producing facilities! ***");
+                Console.WriteLine("*** Oops! You don't have any egg-producing facilities! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
             }

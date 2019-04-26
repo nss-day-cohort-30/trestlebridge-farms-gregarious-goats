@@ -31,7 +31,7 @@ namespace Trestlebridge.Actions {
                     ChooseFeatherHarvester.CollectInput(farm);
                     break;
                 case 4:
-                    // ChooseComposter.CollectInput(farm);
+                    ChooseComposter.CollectInput(farm);
                     break;
                 case 5:
                      ChooseSeedHarvester.CollectInput(farm);
