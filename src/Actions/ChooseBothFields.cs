@@ -10,7 +10,7 @@ namespace Trestlebridge.Actions {
     public class ChooseBothField {
         public static void CollectInput (Farm farm, IResource seed) {
             //Console.Clear();
-            if (farm.PlowedFields.Count() == 0 && farm.NaturalFields.Count() == 0) {
+            if (farm.PlowedFields.Count == 0 && farm.NaturalFields.Count == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field or plowed field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();

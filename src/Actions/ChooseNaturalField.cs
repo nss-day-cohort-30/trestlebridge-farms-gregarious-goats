@@ -9,7 +9,7 @@ namespace Trestlebridge.Actions {
     public class ChooseNaturalField {
         public static void CollectInput (Farm farm, IResource seed) {
             // Console.Clear();
-            if (farm.NaturalFields.Count() == 0) {
+            if (farm.NaturalFields.Count == 0) {
                 Console.WriteLine("*** Oops! You need to purchase a natural field first! ***");
                 Console.WriteLine("*** Press return key to go back to main menu.");
                 Console.ReadLine();
