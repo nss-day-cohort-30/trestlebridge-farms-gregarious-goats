@@ -109,9 +109,11 @@ namespace Trestlebridge.Actions
                                 try
                                 {
                                     for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
                                         farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
                                         .RemoveAt(farm.GrazingFields.Single(field => field.ShortId == chosenFacilityId).Resources
                                         .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
 
                                 }
                                 catch
@@ -119,9 +121,12 @@ namespace Trestlebridge.Actions
                                 }
                                 try
                                 {
-                                    farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .RemoveAt(farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.PlowedFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
                                 }
                                 catch
                                 {
@@ -129,9 +134,12 @@ namespace Trestlebridge.Actions
                                 }
                                 try
                                 {
-                                    farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .RemoveAt(farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.NaturalFields.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
                                 }
                                 catch
                                 {
@@ -139,9 +147,12 @@ namespace Trestlebridge.Actions
                                 }
                                 try
                                 {
-                                    farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .RemoveAt(farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.ChickenHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
                                 }
                                 catch
                                 {
@@ -149,9 +160,12 @@ namespace Trestlebridge.Actions
                                 }
                                 try
                                 {
-                                    farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .RemoveAt(farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
-                                    .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    for (var i = 0; i <= numResourcesToProcessNum - 1; i++)
+                                    {
+                                        farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .RemoveAt(farm.DuckHouses.Single(field => field.ShortId == chosenFacilityId).Resources
+                                        .FindIndex(animal => animal.Type == resourceClassTemplate.Type));
+                                    }
                                 }
                                 catch
                                 {
