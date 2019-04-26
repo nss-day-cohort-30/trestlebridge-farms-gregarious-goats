@@ -18,7 +18,7 @@ namespace Trestlebridge.Actions {
                 {   // Show available facilities and animal counts
                     for (int i = 0; i < farm.GrazingFields.Count; i++)
                     {
-                        var groupedAnimals = farm.GrazingFields[i]._animals.GroupBy(
+                        var groupedAnimals = farm.GrazingFields[i].Resources.GroupBy(
                             currentAnimal => currentAnimal.Type
                             );
                         var animalsString = "";
@@ -30,7 +30,7 @@ namespace Trestlebridge.Actions {
                     }
                     for (int i = 0; i < farm.ChickenHouses.Count; i++)
                     {
-                        Console.WriteLine($"{farm.GrazingFields.Count + i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count} chickens)");
+                        Console.WriteLine($"{farm.GrazingFields.Count + i + 1}. Chicken House ({farm.ChickenHouses[i].Resources.Count} chickens)");
                     }
                         Console.WriteLine ();
                         Console.WriteLine ($"Which facility has the animals you want to process?");
@@ -40,7 +40,7 @@ namespace Trestlebridge.Actions {
 
                         if (choice <= farm.GrazingFields.Count) {
                             Console.WriteLine("The following animals are in the grazing field:");
-                            var groupedAnimals = farm.GrazingFields[choice - 1]._animals.GroupBy(
+                            var groupedAnimals = farm.GrazingFields[choice - 1].Resources.GroupBy(
                                     currentAnimal => currentAnimal.Type
                                     );
                                 var i = 1;
@@ -58,7 +58,7 @@ namespace Trestlebridge.Actions {
 
                         } else {
                             Console.WriteLine("The following animals are in the chicken house:");
-                            var groupedAnimals = farm.ChickenHouses[choice - farm.GrazingFields.Count - 1]._animals.GroupBy(
+                            var groupedAnimals = farm.ChickenHouses[choice - farm.GrazingFields.Count - 1].Resources.GroupBy(
                                     currentAnimal => currentAnimal.Type
                                     );
                                 var i = 1;

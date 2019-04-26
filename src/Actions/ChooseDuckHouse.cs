@@ -18,8 +18,8 @@ namespace Trestlebridge.Actions {
                     for (int i = 0; i < farm.DuckHouses.Count; i++)
                     {
                         // Only show facilities that are not full
-                        if (farm.DuckHouses[i]._animals.Count != farm.DuckHouses[i].Capacity) {
-                            Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i]._animals.Count} ducks)");
+                        if (farm.DuckHouses[i].Resources.Count != farm.DuckHouses[i].Capacity) {
+                            Console.WriteLine ($"{i + 1}. Duck House ({farm.DuckHouses[i].Resources.Count} ducks)");
                         } else {
                             counter++;
                         }

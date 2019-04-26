@@ -20,8 +20,8 @@ namespace Trestlebridge.Actions {
                     int counter = 0;
                     for (int i = 0; i < farm.NaturalFields.Count; i++)
                     {// Only show facilities that are not full
-                        if (farm.NaturalFields[i]._plants.Count != farm.NaturalFields[i].Capacity) {
-                            var groupedPlants = farm.NaturalFields[i]._plants.GroupBy(
+                        if (farm.NaturalFields[i].Resources.Count != farm.NaturalFields[i].Capacity) {
+                            var groupedPlants = farm.NaturalFields[i].Resources.GroupBy(
                                 currentPlant => currentPlant.Type
                                 );
                             var plantString = "";
@@ -36,8 +36,8 @@ namespace Trestlebridge.Actions {
                     }
                     for (int i = 0; i < farm.PlowedFields.Count; i++)
                     {// Only show facilities that are not full
-                        if (farm.PlowedFields[i]._plants.Count != farm.PlowedFields[i].Capacity) {
-                            var groupedPlants = farm.PlowedFields[i]._plants.GroupBy(
+                        if (farm.PlowedFields[i].Resources.Count != farm.PlowedFields[i].Capacity) {
+                            var groupedPlants = farm.PlowedFields[i].Resources.GroupBy(
                                 currentPlant => currentPlant.Type
                                 );
                             var plantString = "";
@@ -91,7 +91,7 @@ namespace Trestlebridge.Actions {
                 {
                     for (int i = 0; i < farm.NaturalFields.Count; i++)
                     {
-                        var groupedPlants = farm.NaturalFields[i]._plants.GroupBy(
+                        var groupedPlants = farm.NaturalFields[i].Resources.GroupBy(
                             currentPlant => currentPlant.Type
                             );
                         var plantString = "";
@@ -103,7 +103,7 @@ namespace Trestlebridge.Actions {
                     }
                     for (int i = 0; i < farm.PlowedFields.Count; i++)
                     {
-                        var groupedPlants = farm.PlowedFields[i]._plants.GroupBy(
+                        var groupedPlants = farm.PlowedFields[i].Resources.GroupBy(
                             currentPlant => currentPlant.Type
                             );
                         var plantString = "";

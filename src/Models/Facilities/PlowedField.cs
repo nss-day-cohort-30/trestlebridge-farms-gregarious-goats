@@ -1,66 +1,24 @@
 using System;
 using System.Text;
 using System.Collections.Generic;
+using Trestlebridge.Models.BaseClasses;
 using Trestlebridge.Interfaces;
 using Trestlebridge.Actions;
 
 
 namespace Trestlebridge.Models.Facilities {
-    public class PlowedField : IFacility<IResource>
+    public class PlowedField : Facility, IFacility<IResource>
     {
-        private double _capacity = 13;
-        private Guid _id = Guid.NewGuid();
+        public PlowedField() : base(13) { }
 
-        public List<IResource> _plants = new List<IResource>();
-
-        public double Capacity {
-            get {
-                return _capacity;
-            }
-        }
-
-        public void AddResource (Farm farm, IResource plant)
-        {
-                _plants.Add(plant);
-        }
-
-        public void AddResource (Farm farm, List<IResource> plants)
-        {
-            if (_plants.Count + plants.Count <= _capacity) {
-                _plants.AddRange(plants);
-            }
-            else {
-                for (int i =  _plants.Count; i < _capacity; i++)
-                {
-                    _plants.Add(plants[0]);
-                    plants.Remove(plants[0]);
-                }
-                //if(plants[0].Type == "SunFlower")
-                //     ChooseBothField.CollectInput(farm,plants);
-                // else
-                    ChoosePlowedField.CollectInput(farm, plants);
-            }
-        }
-
-        public void RemoveResource (Farm farm, IResource plant) {
-                    _plants.Remove (plant);
-            }
-        public void RemoveResource (Farm farm, List<IResource> plants) {
-            if (_plants.Count - plants.Count > 0) {
-                for (int i = 0; i < plants.Count; i++)
-                    _plants.Remove (plants[0]);
-            }
-        }
         public override string ToString()
         {
             StringBuilder output = new StringBuilder();
-            string shortId = $"{this._id.ToString().Substring(this._id.ToString().Length - 6)}";
 
-            output.Append($"Plowed field {shortId} has {this._plants.Count} plants\n");
-            this._plants.ForEach(a => output.Append($"   {a}\n"));
+            output.Append($"Natural field {ShortId} has {this.Resources.Count} rows of plants\n");
+            this.Resources.ForEach(a => output.Append($"   {a}\n"));
 
             return output.ToString();
         }
-
     }
 }
