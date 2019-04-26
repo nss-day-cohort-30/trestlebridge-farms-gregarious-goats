@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IPlowedFieldDwelling
+    public interface IPlowedFieldDwelling : IResource
     {
     }
 }

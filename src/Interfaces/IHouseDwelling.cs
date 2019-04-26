@@ -1,6 +1,6 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface IHouseDwelling
+    public interface IHouseDwelling : IResource
     {
     }
 }

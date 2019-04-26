@@ -1,6 +1,8 @@
 namespace Trestlebridge.Interfaces
 {
-    public interface INaturalFieldDwelling
+    public interface INaturalFieldDwelling : IResource
     {
+        // What do all natural field dwelling plants have to have?
+
     }
 }
