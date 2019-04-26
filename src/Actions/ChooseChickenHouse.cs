@@ -23,9 +23,9 @@ namespace Trestlebridge.Actions
                     for (int i = 0; i < farm.ChickenHouses.Count; i++)
                     {
                         // Only show facilities that are not full
-                        if (farm.ChickenHouses[i]._animals.Count != farm.ChickenHouses[i].Capacity)
+                        if (farm.ChickenHouses[i].Resources.Count != farm.ChickenHouses[i].Capacity)
                         {
-                            Console.WriteLine($"{i + 1}. Chicken House ({farm.ChickenHouses[i]._animals.Count} chickens)");
+                            Console.WriteLine($"{i + 1}. Chicken House ({farm.ChickenHouses[i].Resources.Count} chickens)");
                         } else {
                             counter++;
                         }
