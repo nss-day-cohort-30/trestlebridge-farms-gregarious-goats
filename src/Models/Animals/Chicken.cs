@@ -9,7 +9,7 @@ namespace Trestlebridge.Models.Animals
     {
         // Properties:
         public double _eggsProduced { get; } = 7;
-        public double _feathersProduced { get; } = 0.5;
+        public double _feathersProduced { get; } = 100.0;
         public double _meatProduced { get; } = 1.7;
 
 
